@@ -1,0 +1,47 @@
+package org.exercice1;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+class Library {
+    private List<Book> books;
+
+    public Library() {
+        this.books = new ArrayList<>();
+    }
+
+    public void addBook(Book book) {
+        if (book != null && !books.contains(book)) {
+            books.add(book);
+            Collections.sort(books, (b1, b2) -> b1.getTitle().compareTo(b2.getTitle()));
+        }
+    }
+
+    public List<Book> getBookList() {
+        return new ArrayList<>(books);
+    }
+
+    public Book getBook(int position) {
+        if (position >= 0 && position < books.size()) {
+            return books.get(position);
+        }
+        throw new IndexOutOfBoundsException("Position out of range");
+    }
+
+    public void addBookAtPosition(int position, Book book) {
+        if (book != null && !books.contains(book)) {
+            if (position >= 0 && position <= books.size()) {
+                books.add(position, book);
+                Collections.sort(books, (b1, b2) -> b1.getTitle().compareTo(b2.getTitle()));
+            } else {
+                throw new IndexOutOfBoundsException("Position out of range");
+            }
+        }
+    }
+
+    public boolean removeBook(String title) {
+        return books.removeIf(book -> book.getTitle().equals(title));
+    }
+
+}
