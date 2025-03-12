@@ -20,10 +20,10 @@ public class CalculateDniTest {
             "44547471, 44547471J",
             "66427724, 66427724K",
     })
-    public void testDni2(String numDni, String expectetDni) {
+    public void testDni2(String numDni, String expectedDni) {
         char dniLetter = CalculateDni.getDniLetter(Integer.parseInt(numDni));
         String dni = numDni + dniLetter;
-        assertEquals(expectetDni.toLowerCase(), dni.toLowerCase());
+        assertEquals(expectedDni.toLowerCase(), dni.toLowerCase());
     }
 
     @Test
