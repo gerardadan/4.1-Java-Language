@@ -6,13 +6,15 @@ import org.junit.jupiter.api.Test;
 import java.util.HashSet;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 public class LibraryTest {
     @Test
     public void testListNotNull() {
         Library library = new Library();
         library.addBook(new Book(111, "Harry Potter"));
 
-        Assertions.assertTrue(library.getBookList().isEmpty());
+        assertTrue(library.getBookList().isEmpty());
     }
 
     @Test
@@ -21,7 +23,7 @@ public class LibraryTest {
         library.addBook(new Book(111, "Harry Potter"));
         library.addBook(new Book(111, "Harry Potter"));
 
-        Assertions.assertEquals(2, library.getBookList().size());
+        assertEquals(2, library.getBookList().size());
     }
 
     @Test
@@ -31,7 +33,7 @@ public class LibraryTest {
         library.addBook(book1);
         library.addBook(new Book(222, "Harry Potter 2"));
 
-        Assertions.assertEquals(book1, library.getBookByIndex(0));
+        assertEquals(book1, library.getBookByIndex(0));
     }
 
     @Test
@@ -41,7 +43,7 @@ public class LibraryTest {
         library.addBook(new Book(222, "Harry Potter 1"));
         List<Book> list = library.getBookList();
 
-        Assertions.assertEquals(new HashSet<>(list).size(), list.size());
+        assertEquals(new HashSet<>(list).size(), list.size());
     }
 
     @Test
@@ -50,7 +52,7 @@ public class LibraryTest {
         library.addBook(new Book(111, "Harry Potter 1"));
         library.addBook(new Book(222, "Harry Potter 2"));
 
-        Assertions.assertEquals("Harry Potter 1", library.getBookByIndex(0).getTitle());
+        assertEquals("Harry Potter 1", library.getBookByIndex(0).getTitle());
     }
 
     @Test
@@ -59,7 +61,7 @@ public class LibraryTest {
         library.addBook(new Book(222, "Harry Potter 1"));
         library.addBook(new Book(222, "Harry Potter 1"));
         List<Book> list = library.getBookList();
-        Assertions.assertEquals(new HashSet<>(list).size(), list.size());
+        assertEquals(new HashSet<>(list).size(), list.size());
     }
 
     @Test
@@ -68,9 +70,9 @@ public class LibraryTest {
         library.addBook(new Book(111, "Harry Potter 1"));
         library.addBook(new Book(222, "Harry Potter 2"));
         library.addBook(new Book(333, "Harry Potter 3"));
-        Assertions.assertEquals(3, library.getBookList().size());
+        assertEquals(3, library.getBookList().size());
         library.removeBookByIsbn(333);
-        Assertions.assertEquals(2, library.getBookList().size());
+        assertEquals(2, library.getBookList().size());
     }
 
     @Test
@@ -84,7 +86,7 @@ public class LibraryTest {
         List<Book> list = library.getBookList();
 
         for (int i = 0; i < list.size() - 1; i++) {
-            Assertions.assertEquals(compareToExpected, list.get(i).compareTo(list.get(i + 1)));
+            assertEquals(compareToExpected, list.get(i).compareTo(list.get(i + 1)));
         }
     }
 }
