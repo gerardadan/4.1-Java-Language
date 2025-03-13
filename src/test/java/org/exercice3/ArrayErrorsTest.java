@@ -2,43 +2,24 @@ package org.exercice3;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Assertions;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ArrayErrorsTest {
 
     @Test
-    @DisplayName("Agregar elemento usando una fila negativa debe lanzar una excepción")
-    void agregarElementoFilaNegativaTest() {
+    @DisplayName("Exercice3-ArrayIndexOutOfBoundsException")
+    void testArrayIndexOutOfBoundsException() {
         int[] numbers = new int[10];
-        Assertions.assertThrows(ArrayIndexOutOfBoundsException.class,
-                () -> ArrayErrors.getIncorrectArrayIndex(numbers));
+        assertThrowsExactly(ArrayIndexOutOfBoundsException.class, () -> ArrayErrors.getArrayIndexArrayIndexOutOfBoundsException(numbers,11), "The error is not 'ArrayIndexOutOfBoundsException'");
     }
 
     @Test
-    public void Test() {
-        Exception exception = assertThrows(ArrayIndexOutOfBoundsException.class, () -> {
-            ArrayErrors.getIncorrectArrayIndex(new int[10]);
-        });
-
-
-        ArrayIndexOutOfBoundsException e = ArrayErrors.getIncorrectArrayIndex(new int[10]);
-        String expectedMessage = e.getMessage();
-        String actualMessage = e.getMessage();
-
-        assertTrue(actualMessage.contains(expectedMessage));
+    @DisplayName("Exercice3-Exception")
+    void testException() {
+        int[] numbers = new int[10];
+        assertThrowsExactly(ArrayIndexOutOfBoundsException.class, () -> ArrayErrors.getArrayIndexException(numbers,11), "The error is not 'ArrayIndexOutOfBoundsException'");
     }
 
-    @Test
-    void whenExceptionThrown_thenAssertionSucceeds() {
-        Exception exception = assertThrows(NumberFormatException.class, () -> {
-            Integer.parseInt("1a");
-        });
 
-        String expectedMessage = "For input string";
-        String actualMessage = exception.getMessage();
-
-        assertTrue(actualMessage.contains(expectedMessage));
-    }
 }
