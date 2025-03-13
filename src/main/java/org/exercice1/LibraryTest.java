@@ -69,7 +69,7 @@ public class LibraryTest {
         library.addBook(new Book(222, "Harry Potter 2"));
         library.addBook(new Book(333, "Harry Potter 3"));
         Assertions.assertEquals(3, library.getBookList().size());
-        library.removeBook(333);
+        library.removeBookByIsbn(333);
         Assertions.assertEquals(2, library.getBookList().size());
     }
 

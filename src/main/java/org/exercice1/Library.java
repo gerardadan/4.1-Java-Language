@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 class Library {
-    private List<Book> books;
+    private final List<Book> books;
 
     public Library() {
         this.books = new ArrayList<>();
@@ -14,7 +14,7 @@ class Library {
     public void addBook(Book book) {
         if (book != null && !books.contains(book)) {
             books.add(book);
-            Collections.sort(books, (b1, b2) -> b1.getTitle().compareTo(b2.getTitle()));
+            books.sort((b1, b2) -> b1.getTitle().compareTo(b2.getTitle()));
         }
     }
 
@@ -33,7 +33,7 @@ class Library {
         if (book != null && !books.contains(book)) {
             if (position >= 0 && position <= books.size()) {
                 books.add(position, book);
-                Collections.sort(books, (b1, b2) -> b1.getTitle().compareTo(b2.getTitle()));
+                books.sort((b1, b2) -> b1.getTitle().compareTo(b2.getTitle()));
             } else {
                 throw new IndexOutOfBoundsException("Position out of range");
             }
