@@ -2,11 +2,11 @@ package org.exercice3;
 
 public class ArrayErrors {
 
-    public static ArrayIndexOutOfBoundsException getIncorrectArrayIndex(int[] array){
+    public static ArrayIndexOutOfBoundsException getIncorrectArrayIndex(int[] array) {
         try {
-            int incorrectIndex = array[array.length+1];
+            int incorrectIndex = array[array.length + 1];
             return null;
-        }catch (ArrayIndexOutOfBoundsException e){
+        } catch (ArrayIndexOutOfBoundsException e) {
             return e;
         }
     }

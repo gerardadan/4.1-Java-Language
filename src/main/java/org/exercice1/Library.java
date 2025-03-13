@@ -22,7 +22,7 @@ class Library {
         return new ArrayList<>(books);
     }
 
-    public Book getBook(int position) {
+    public Book getBookByIndex(int position) {
         if (position >= 0 && position < books.size()) {
             return books.get(position);
         }
@@ -40,7 +40,11 @@ class Library {
         }
     }
 
-    public boolean removeBook(String title) {
+    public boolean removeBookByIsbn(int isbn) {
+        return books.removeIf(book -> book.getIsbn() == isbn);
+    }
+
+    public boolean removeBookByTitle(String title) {
         return books.removeIf(book -> book.getTitle().equals(title));
     }
 

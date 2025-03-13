@@ -12,8 +12,8 @@ public class ArrayErrorsTest {
     @DisplayName("Agregar elemento usando una fila negativa debe lanzar una excepción")
     void agregarElementoFilaNegativaTest() {
         int[] numbers = new int[10];
-        Assertions.assertThrows( ArrayIndexOutOfBoundsException.class,
-                () -> ArrayErrors.getIncorrectArrayIndex(numbers) );
+        Assertions.assertThrows(ArrayIndexOutOfBoundsException.class,
+                () -> ArrayErrors.getIncorrectArrayIndex(numbers));
     }
 
     @Test

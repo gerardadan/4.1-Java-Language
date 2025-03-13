@@ -2,7 +2,7 @@ package org.exercice1;
 
 import java.util.Objects;
 
-public class Book implements Comparable<Book>{
+public class Book implements Comparable<Book> {
     private int isbn;
     private String title;
 
@@ -36,13 +36,14 @@ public class Book implements Comparable<Book>{
     @Override
     public int compareTo(Book other) {
         int result = 0;
-        if(this.title.equals(other.title)){
-            result = Integer.compare(this.isbn, other.isbn);;
-        } else{
+        if (this.title.equals(other.title)) {
+            result = Integer.compare(this.isbn, other.isbn);
+            ;
+        } else {
             result = this.title.compareTo(other.title);
-            if(result > 0)
+            if (result > 0)
                 result = 1;
-            else if(result < 0)
+            else if (result < 0)
                 result = -1;
         }
 

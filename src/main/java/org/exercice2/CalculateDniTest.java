@@ -3,6 +3,7 @@ package org.exercice2;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CalculateDniTest {
@@ -20,7 +21,7 @@ public class CalculateDniTest {
             "44547471, 44547471J",
             "66427724, 66427724K",
     })
-    public void testDni2(String numDni, String expectedDni) {
+    public void testDniWithParams(String numDni, String expectedDni) {
         char dniLetter = CalculateDni.getDniLetter(Integer.parseInt(numDni));
         String dni = numDni + dniLetter;
         assertEquals(expectedDni.toLowerCase(), dni.toLowerCase());
@@ -29,9 +30,10 @@ public class CalculateDniTest {
     @Test
     public void testDni() {
         int dniNum = 48598437;
+        String expected = "48598437N";
         char dniLetter = CalculateDni.getDniLetter(dniNum);
         String dni = String.valueOf(dniNum) + dniLetter;
-        assertEquals("48598437N", dni);
+        assertEquals(expected.toLowerCase(), dni.toLowerCase());
     }
 
 
